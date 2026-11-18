@@ -1,0 +1,38 @@
+{
+  "model": "Histogram gradient boosting",
+  "variant": "Tuned",
+  "seed": 352,
+  "folds": 3,
+  "parameter_config": {
+    "l2_regularization": 6.495442056792098,
+    "learning_rate": 0.0863298762530568,
+    "max_iter": 143,
+    "max_leaf_nodes": 35,
+    "min_samples_leaf": 83
+  },
+  "candidate_count": 10,
+  "feature_names": [
+    "distance_m",
+    "distance_rank",
+    "distance_above_best_m",
+    "arc_length_m",
+    "projection_fraction",
+    "before_start_m",
+    "after_end_m",
+    "heading_before_cos",
+    "heading_after_cos",
+    "heading_window_cos",
+    "previous_distance_m",
+    "next_distance_m",
+    "previous3_distance_m",
+    "next3_distance_m",
+    "previous_progress_m",
+    "next_progress_m",
+    "speed_before_mps",
+    "speed_after_mps",
+    "since_previous_s",
+    "until_next_s",
+    "turn_cos"
+  ],
+  "training_cap_observations_per_trip": 950
+}

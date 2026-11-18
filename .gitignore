@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.cache/
+local/
+data/
+output/
+*.track
+*.nodes
+*.arcs
+*.route
+.env

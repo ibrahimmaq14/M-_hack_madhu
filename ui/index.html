@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PathSnap | Route reconstruction</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="shell bar">
+      <a class="brand" href="./" aria-label="PathSnap home"><span class="mark" aria-hidden="true">↗</span>PathSnap</a>
+      <span class="status" id="status" role="status"><i></i><span>Connecting</span></span>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="intro">
+      <div>
+        <p id="mode" class="mode">Route evaluation</p>
+        <h1>Route reconstruction</h1>
+        <p class="sub">Replay a GPS trip against its directed road network.</p>
+      </div>
+      <form id="controls">
+        <label for="trip">Trip</label>
+        <div class="pick">
+          <select id="trip" name="trip" disabled><option>Loading trips…</option></select>
+          <button id="run" class="run" disabled>Match route <span aria-hidden="true">↗</span></button>
+        </div>
+      </form>
+    </div>
+    <p id="error" role="alert" hidden></p>
+    <div class="columns">
+      <section class="map-card" aria-labelledby="map-title">
+        <div class="map-toolbar">
+          <div><h2 id="map-title">Trip map</h2><div id="map-detail" class="muted">Waiting for a trip</div></div>
+          <div class="map-layers" aria-label="Map layers">
+            <label><input type="checkbox" id="roads" checked> Roads</label>
+            <label><input type="checkbox" id="gps" checked> GPS</label>
+            <label><input type="checkbox" id="route" checked> Match</label>
+          </div>
+        </div>
+        <div class="map">
+          <canvas id="map" aria-label="Projected road network, GPS observations, and matched route"></canvas>
+          <div class="map-placeholder" id="placeholder"><span class="map-pin">⌖</span><p>Select a trip and match its route.</p></div>
+          <div class="map-tools">
+            <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+            <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+            <button type="button" id="reset" aria-label="Fit trip">⌂</button>
+          </div>
+          <span id="scale" class="scale" hidden></span>
+        </div>
+      </section>
+      <aside class="result-card" aria-labelledby="result-title">
+        <div class="result-head"><h2 id="result-title">Evaluation</h2><span id="trip-tag">No trip</span></div>
+        <div class="hero-metric">
+          <p>Point accuracy</p>
+          <output id="accuracy">—</output>
+          <small>Agreement with the aligned reference</small>
+        </div>
+        <dl class="metrics">
+          <div><dt>Route similarity</dt><dd id="similarity">—</dd></div>
+          <div><dt>Directed continuity</dt><dd id="continuity">—</dd></div>
+          <div><dt>GPS observations</dt><dd id="observations">—</dd></div>
+          <div><dt>Route parts</dt><dd id="parts">—</dd></div>
+          <div><dt>Server time</dt><dd id="elapsed">—</dd></div>
+        </dl>
+        <p class="result-note" id="result-note">Metrics appear after the API processes a trip.</p>
+      </aside>
+    </div>
+    <footer><span id="model">PathSnap</span><span id="api-address"></span></footer>
+  </main>
+</body>
+</html>

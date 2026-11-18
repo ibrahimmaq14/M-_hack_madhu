@@ -1,0 +1,8 @@
+-r requirements.txt
+optuna==5.1.0
+matplotlib==3.11.1
+folium==1.0.0
+reportlab==5.0.1
+httpx==0.28.1
+playwright==1.65.2
+pymupdf==1.28.2
